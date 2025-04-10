@@ -6,8 +6,7 @@ export default{
   data(){
     return {
       isLoggedIn: false,
-      userName: '',
-      isSidebarOpen: false
+      userName: ''
     };
   },
   mounted() {
@@ -37,95 +36,70 @@ export default{
       this.userName = '';
       emitter.emit('user-logged-out'); // ← emit event logout
       this.$router.push('/signin');
-      this.isSidebarOpen = false;
-    },
-    toggleSidebar() {
-      this.isSidebarOpen = !this.isSidebarOpen;
-    },
-    closeSidebar() {
-      this.isSidebarOpen = false;
     }
   }
 };
 </script>
 
 <template>
-  <nav class="navbar fixed-top custom-navbar d-flex justify-content-between align-items-center px-3">
-    <div class="d-flex align-items-center">
-      <img src="/logo.png" alt="Logo" height="50" class="me-2" />
-      <router-link to="/" class="navbar-brand fw-bold text-primary">Perpus Nurtanio</router-link>
-    </div>
+  <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-primary" href="#">
+        <img src="/logo.png" alt="Logo" height="50" class="d-inline-block align-text-top me-2"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Tombol hamburger (muncul hanya di mobile) -->
-    <button class="navbar-togler" type="button" @click="toggleSidebar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Menu desktop -->
-    <div class="d-none d-lg-flex align-items-center">
-      <ul class="navbar-nav flex-row gap-4 mb-0">
-        <li class="nav-item"><router-link to="/" class="nav-link custom-link">Beranda</router-link></li>
-        <li class="nav-item"><router-link to="/tentangkami" class="nav-link custom-link">Tentang Kami</router-link></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-link" href="#" data-bs-toggle="dropdown">Rak Buku</a>
-          <ul class="dropdown-menu">
-            <li><router-link to="/kategori" class="dropdown-item">Kategori</router-link></li>
-            <li><router-link to="/favoritpembaca" class="dropdown-item">Favorit Pembaca</router-link></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><router-link to="/bukubaru" class="dropdown-item">Buku Baru</router-link></li>
-            <li><a href="https://unnurbandung.perpustakaan.co.id/" class="dropdown-item">E-Book</a></li>
-          </ul>
-        </li>
-      </ul>
-
-      <form class="d-flex mx-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Cari buku..." />
-        <button class="btn btn-outline-primary" type="submit">Cari</button>
-      </form>
-
-      <!-- Akun Desktop -->
-      <div class="dropdown ms-3">
-        <img src="/user.png" width="32" height="32" class="rounded-circle dropdown-toggle" role="button"
-             data-bs-toggle="dropdown" alt="Account Icon" style="cursor:pointer" />
-        <ul class="dropdown-menu dropdown-menu-end">
-          <template v-if="isLoggedIn">
-            <li><h6 class="dropdown-header">Halo, {{ userName }}</h6></li>
-            <li><router-link class="dropdown-item" to="/bookmark">Bookmark</router-link></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><button class="dropdown-item" @click="logout">Logout</button></li>
-          </template>
-          <template v-else>
-            <li><router-link class="dropdown-item" to="/signin">Login</router-link></li>
-          </template>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link custom-link" aria-current="page">Beranda</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/tentangkami" class="nav-link custom-link" aria-current="page">Tentang Kami</router-link>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle custom-link" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              Rak Buku
+            </a>
+            <ul class="dropdown-menu">
+              <li><router-link to="/kategori" class="nav-link custom-link" aria-current="page">Kategori</router-link></li>
+              <li><router-link to="/favoritpembaca" class="nav-link custom-link" aria-current="page">Favorit Pembaca</router-link></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><router-link to="/bukubaru" class="nav-link custom-link" aria-current="page">Buku Baru</router-link></li>
+              <li><a href="https://unnurbandung.perpustakaan.co.id/" class="nav-link custom-link" rel="noopener">E-Book</a></li>
+            </ul>
+          </li>
         </ul>
+
+        <form class="d-flex mx-auto" role="search">
+          <input class="form-control me-2" type="search" placeholder="Cari buku..." aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Cari</button>
+        </form>
+
+        <!-- Akun -->
+        <div class="ms-3 dropdown">
+          <img src="/user.png" width="32" height="32" class="rounded-circle dropdown-toggle" role="button"
+               data-bs-toggle="dropdown" alt="Account Icon" style="cursor:pointer" />
+
+          <ul class="dropdown-menu dropdown-menu-end">
+            <template v-if="userName">
+              <li><h6 class="dropdown-header">Halo, {{ userName }}</h6></li>
+              <li><router-link class="dropdown-item" to="/bookmark">Bookmark</router-link></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item" @click="logout">Logout</button></li>
+            </template>
+            <template v-else>
+              <li><router-link class="dropdown-item" to="/signin">Login</router-link></li>
+            </template>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
-
-  <!-- Overlay -->
-  <div v-if="isSidebarOpen" class="sidebar-overlay" @click="closeSidebar"></div>
-
-  <!-- Sidebar untuk mobile -->
-  <div :class="['mobile-sidebar', { open: showSidebar }]">
-    <div class="sidebar-content">
-      <button class="btn btn-close mb-4" @click="toggleSidebar"></button>
-      <router-link to="/" class="nav-link" @click="toggleSidebar">Beranda</router-link>
-      <router-link to="/tentangkami" class="nav-link" @click="toggleSidebar">Tentang Kami</router-link>
-      <router-link to="/kategori" class="nav-link" @click="toggleSidebar">Kategori</router-link>
-      <router-link to="/favoritpembaca" class="nav-link" @click="toggleSidebar">Favorit Pembaca</router-link>
-      <router-link to="/bukubaru" class="nav-link" @click="toggleSidebar">Buku Baru</router-link>
-      <a href="https://unnurbandung.perpustakaan.co.id/" class="nav-link" @click="toggleSidebar">E-Book</a>
-      <hr />
-      <div v-if="isLoggedIn">
-        <p>Halo, {{ userName }}</p>
-        <router-link to="/bookmark" class="nav-link" @click="toggleSidebar">Bookmark</router-link>
-        <button class="btn btn-danger mt-2" @click="logout">Logout</button>
-      </div>
-      <div v-else>
-        <router-link to="/signin" class="btn btn-primary mt-2" @click="toggleSidebar">Login</router-link>
-      </div>
-    </div>
-  </div>
 </template>
 
 <style scoped>
