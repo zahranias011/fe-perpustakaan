@@ -18,6 +18,29 @@
         Temukan koleksi buku terbaik, sumber literatur digital, dan berbagai layanan perpustakaan kampus kami. Akses mudah, cepat, dan lengkap untuk menunjang kebutuhan akademikmu.
       </p>
     </div>
+    
+    <!-- isi -->>
+    <div class="max-w-6xl mx-auto px-4 py-12">
+  <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">Fitur Unggulan</h3>
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+    <div>
+      <img src="/icon-book.svg" alt="Koleksi Buku" class="mx-auto h-16 mb-4" />
+      <h4 class="font-bold mb-2 text-lg">Koleksi Buku Lengkap</h4>
+      <p class="text-gray-600">Akses ribuan koleksi buku fisik dan digital dari berbagai bidang ilmu.</p>
+    </div>
+    <div>
+      <img src="/icon-digital.svg" alt="Layanan Digital" class="mx-auto h-16 mb-4" />
+      <h4 class="font-bold mb-2 text-lg">Layanan Digital</h4>
+      <p class="text-gray-600">E-Library, Jurnal, dan Repository yang bisa kamu akses kapan saja.</p>
+    </div>
+    <div>
+      <img src="/icon-service.svg" alt="Pelayanan Ramah" class="mx-auto h-16 mb-4" />
+      <h4 class="font-bold mb-2 text-lg">Pelayanan Ramah</h4>
+      <p class="text-gray-600">Petugas siap membantumu dalam pencarian referensi dan layanan perpustakaan.</p>
+    </div>
+  </div>
+</div>
+
 
     <!-- Footer -->
     <footer class="footer">
