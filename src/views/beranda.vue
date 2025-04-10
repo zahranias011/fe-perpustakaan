@@ -30,7 +30,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
       <!-- Fitur 1 -->
       <div class="flex items-start space-x-4 text-left">
-        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <img src="/logo.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
         <div>
           <h3 class="text-xl font-semibold">Fitur Unggulan</h3>
           <p class="text-gray-600">Perpustakaan digital modern dengan akses cepat dan lengkap ke semua layanan kampus.</p>
@@ -39,7 +39,7 @@
 
       <!-- Fitur 2 -->
       <div class="flex items-start space-x-4 text-left">
-        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <img src="/logo.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
         <div>
           <h3 class="text-xl font-semibold">Koleksi Buku Lengkap</h3>
           <p class="text-gray-600">Akses ribuan koleksi buku fisik dan digital dari berbagai bidang ilmu.</p>
@@ -48,7 +48,7 @@
 
       <!-- Fitur 3 -->
       <div class="flex items-start space-x-4 text-left">
-        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <img src="/logo.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
         <div>
           <h3 class="text-xl font-semibold">Layanan Digital</h3>
           <p class="text-gray-600">E-Library, Jurnal, dan Repository yang bisa kamu akses kapan saja.</p>
@@ -57,7 +57,7 @@
 
       <!-- Fitur 4 -->
       <div class="flex items-start space-x-4 text-left">
-        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <img src="/logo.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
         <div>
           <h3 class="text-xl font-semibold">Pelayanan Ramah</h3>
           <p class="text-gray-600">Petugas siap membantumu dalam pencarian referensi dan layanan perpustakaan.</p>
