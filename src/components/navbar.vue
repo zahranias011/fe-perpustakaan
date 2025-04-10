@@ -38,7 +38,7 @@ export default{
       emitter.emit('user-logged-out'); // ← emit event logout
       this.$router.push('/signin');
       this.isSidebarOpen = false;
-    }
+    },
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;
     },

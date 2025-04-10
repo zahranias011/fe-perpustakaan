@@ -19,55 +19,28 @@
       </p>
     </div>
     
-    <!-- Fitur Unggulan -->
-<section class="py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Fitur Unggulan Perpustakaan</h3>
-    
-    <div class="grid gap-12 md:grid-cols-2">
-      <!-- Fitur 1 -->
-      <div class="flex items-start space-x-5 hover:shadow-md transition duration-300 p-4 rounded-xl">
-        <img src="/buku1.png" alt="Perpustakaan Digital" class="w-16 h-16 object-contain" />
-        <div>
-          <h4 class="text-xl font-semibold text-blue-700">Perpustakaan Digital Modern</h4>
-          <p class="text-gray-600">Akses cepat dan lengkap ke seluruh layanan kampus secara online.</p>
-        </div>
-      </div>
+    <!--isi-->
 
-      <!-- Fitur 2 -->
-      <div class="flex items-start space-x-5 hover:shadow-md transition duration-300 p-4 rounded-xl">
-        <img src="/logo.png" alt="Koleksi Buku" class="w-16 h-16 object-contain" />
-        <div>
-          <h4 class="text-xl font-semibold text-blue-700">Koleksi Buku Lengkap</h4>
-          <p class="text-gray-600">Ribuan koleksi buku fisik dan digital dari berbagai disiplin ilmu.</p>
-        </div>
-      </div>
-
-      <!-- Fitur 3 -->
-      <div class="flex items-start space-x-5 hover:shadow-md transition duration-300 p-4 rounded-xl">
-        <img src="/logo.png" alt="Layanan Digital" class="w-16 h-16 object-contain" />
-        <div>
-          <h4 class="text-xl font-semibold text-blue-700">Layanan E-Library & Jurnal</h4>
-          <p class="text-gray-600">Jurnal, repository, dan e-library bisa diakses kapan saja dan di mana saja.</p>
-        </div>
-      </div>
-
-      <!-- Fitur 4 -->
-      <div class="flex items-start space-x-5 hover:shadow-md transition duration-300 p-4 rounded-xl">
-        <img src="/logo.png" alt="Pelayanan Ramah" class="w-16 h-16 object-contain" />
-        <div>
-          <h4 class="text-xl font-semibold text-blue-700">Pelayanan Ramah & Informatif</h4>
-          <p class="text-gray-600">Tim kami siap membantumu dalam pencarian referensi dan konsultasi.</p>
-        </div>
-      </div>
+    <div class="max-w-6xl mx-auto px-4 py-12">
+  <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">Fitur Unggulan</h3>
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+    <div>
+      <img src="/buku.png" alt="Koleksi Buku" class="mx-auto h-16 mb-4" />
+      <h4 class="font-bold mb-2 text-lg">Koleksi Buku Lengkap</h4>
+      <p class="text-gray-600">Akses ribuan koleksi buku fisik dan digital dari berbagai bidang ilmu.</p>
+    </div>
+    <div>
+      <img src="/buku1.png" alt="Layanan Digital" class="mx-auto h-16 mb-4" />
+      <h4 class="font-bold mb-2 text-lg">Layanan Digital</h4>
+      <p class="text-gray-600">E-Library, Jurnal, dan Repository yang bisa kamu akses kapan saja.</p>
+    </div>
+    <div>
+      <img src="/buku.png" alt="Pelayanan Ramah" class="mx-auto h-16 mb-4" />
+      <h4 class="font-bold mb-2 text-lg">Pelayanan Ramah</h4>
+      <p class="text-gray-600">Petugas siap membantumu dalam pencarian referensi dan layanan perpustakaan.</p>
     </div>
   </div>
-</section>
-
-
-
-
-
+</div>
 
 
     <!-- Footer -->
