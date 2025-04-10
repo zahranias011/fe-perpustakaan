@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :class="{show: visble}">
+  <div class="container" :class="{show: visible}">
     <div class="about-card">
       <h1 class="main-title">Tentang Kami</h1>
 
@@ -91,5 +91,10 @@
 <script>
 export default {
   name: "TentangKami",
+  data() {
+    return {
+      visble: true // atau false, tergantung kebutuhan
+    };
+  }
 };
 </script>
