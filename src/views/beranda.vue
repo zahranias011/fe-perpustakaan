@@ -183,7 +183,6 @@ export default {
   .footer-logo {
     width: 100px;
   }
-
   .footer-container {
     grid-template-columns: 1fr;
     gap: 30px;
