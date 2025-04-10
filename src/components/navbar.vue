@@ -6,7 +6,8 @@ export default{
   data(){
     return {
       isLoggedIn: false,
-      userName: ''
+      userName: '',
+      isSidebarOpen: false
     };
   },
   mounted() {
@@ -36,6 +37,13 @@ export default{
       this.userName = '';
       emitter.emit('user-logged-out'); // ← emit event logout
       this.$router.push('/signin');
+      this.isSidebarOpen = false;
+    }
+    toggleSidebar() {
+      this.isSidebarOpen = !this.isSidebarOpen;
+    },
+    closeSidebar() {
+      this.isSidebarOpen = false;
     }
   }
 };
@@ -49,7 +57,7 @@ export default{
     </div>
 
     <!-- Tombol hamburger (muncul hanya di mobile) -->
-    <button class="btn d-lg-none" @click="toggleSidebar">
+    <button class="navbar-togler" type="button" @click="toggleSidebar">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -93,6 +101,9 @@ export default{
       </div>
     </div>
   </nav>
+
+  <!-- Overlay -->
+  <div v-if="isSidebarOpen" class="sidebar-overlay" @click="closeSidebar"></div>
 
   <!-- Sidebar untuk mobile -->
   <div :class="['mobile-sidebar', { open: showSidebar }]">
