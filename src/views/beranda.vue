@@ -2,7 +2,7 @@
   <div class="min-h-screen bg-gray-100">
     <!-- Banner -->
     <div class="relative w-full h-[400px]">
-      <img src="/bannerweb.png" class="object-cover w-full h-full" />
+      <img src="/bannerweb.png" class="object-cover w-full h-full max-w-full h-auto" />
       <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30"></div>
       <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
         <h1 class="text-4xl md:text-5xl font-bold drop-shadow-lg">Perpustakaan Universitas Nurtanio</h1>
