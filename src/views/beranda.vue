@@ -65,36 +65,6 @@
 </section>
 
 
-<!-- pengumuman -->
-
-<div class="bg-white py-12 px-4 shadow-sm">
-  <div class="max-w-4xl mx-auto text-center">
-    <h3 class="text-xl font-semibold text-gray-800 mb-4">Pengumuman Terbaru</h3>
-    <ul class="text-gray-600 space-y-3 text-left">
-      <li>📢 Perpustakaan tutup sementara tanggal 17 April 2025 dalam rangka Hari Libur Nasional.</li>
-      <li>📚 Buku terbaru tentang AI dan Teknologi telah tersedia di Rak 5 Lantai 2.</li>
-      <li>🖥️ Workshop "Literasi Digital Mahasiswa" dibuka hingga 30 April.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- user -->
-
-<div class="bg-gray-100 py-12 px-4">
-  <div class="max-w-6xl mx-auto text-center">
-    <h3 class="text-xl font-semibold text-gray-800 mb-6">Apa Kata Mereka?</h3>
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow">
-        <p class="italic">"Perpustakaan UNNUR sangat membantu saya menyelesaikan skripsi!"</p>
-        <p class="mt-4 font-bold text-sm text-right">— Dinda, Mahasiswa FIKI</p>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow">
-        <p class="italic">"Layanan digitalnya lengkap dan mudah diakses dari rumah."</p>
-        <p class="mt-4 font-bold text-sm text-right">— Raka, Mahasiswa FT</p>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
