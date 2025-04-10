@@ -21,12 +21,6 @@
       return {
         sections: [
           {
-            icon: "📚",
-            title: "Perpustakaan Digital UNNUR",
-            text:
-              "Perpustakaan Universitas Nurtanio Bandung hadir sebagai pusat informasi akademik berbasis digital, mendukung kegiatan belajar dan riset mahasiswa serta dosen.",
-          },
-          {
             icon: "🎯",
             title: "Visi",
             text:
@@ -41,12 +35,6 @@
               "Mengembangkan kemampuan untuk mencari, dan memanfaatkan informasi.",
               "Mendidik mahasiswa agar dapat memelihara dan memanfaatkan bahan pustaka secara tepat dan berhasil guna.",
             ],
-          },
-          {
-            icon: "👥",
-            title: "Tim Kami",
-            text:
-              "Kami terdiri dari pustakawan profesional, pengembang sistem informasi, serta relawan literasi yang berkomitmen memberikan layanan terbaik bagi civitas akademika UNNUR.",
           },
         ],
       };

@@ -1,12 +1,19 @@
 <template>
   <div class="min-h-screen bg-gray-100">
-    <!-- Banner -->
-    <div class="relative w-full h-[400px] md:h-[500px] overflow-hidden">
-  <img src="/bannerweb.png" class="object-cover w-full h-full max-w-full" />
-  <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30"></div>
-  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold drop-shadow-lg">Perpustakaan Universitas Nurtanio</h1>
-    <p class="text-base sm:text-lg mt-2">Bandung</p>
+  <!-- Banner -->
+  <div class="relative w-full h-[250px] sm:h-[350px] md:h-[450px] bg-black overflow-hidden">
+    <img
+      src="/bannerweb.png"
+      alt="Banner Perpustakaan"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+    <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-4">
+      <h1 class="text-xl sm:text-3xl md:text-5xl font-bold drop-shadow-lg leading-tight">
+        Perpustakaan Universitas Nurtanio
+      </h1>
+      <p class="text-sm sm:text-base md:text-lg mt-2">Bandung</p>
+    </div>
   </div>
 </div>
 
@@ -15,33 +22,43 @@
     <div class="max-w-6xl mx-auto py-12 px-4 text-center">
       <h2 class="text-2xl font-bold text-gray-800 mb-6">Selamat Datang</h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
-        Temukan koleksi buku terbaik, sumber literatur digital, dan berbagai layanan perpustakaan kampus kami. Akses mudah, cepat, dan lengkap untuk menunjang kebutuhan akademikmu.
+        Temukan koleksi buku terbaik, sumber literatur digital, dan berbagai layanan perpustakaan kampus kami. Akses
+        mudah, cepat, dan lengkap untuk menunjang kebutuhan akademikmu.
       </p>
     </div>
-    
-    <!--isi-->
 
-    <div class="max-w-6xl mx-auto px-4 py-12">
-  <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">Fitur Unggulan</h3>
-  <div class="grid md:grid-cols-3 gap-8 text-center">
-    <div>
-      <img src="/buku.jpg" alt="Koleksi Buku" class="mx-auto h-16 mb-4" />
-      <h4 class="font-bold mb-2 text-lg">Koleksi Buku Lengkap</h4>
-      <p class="text-gray-600">Akses ribuan koleksi buku fisik dan digital dari berbagai bidang ilmu.</p>
-    </div>
-    <div>
-      <img src="/buku1.png" alt="Layanan Digital" class="mx-auto h-16 mb-4" />
-      <h4 class="font-bold mb-2 text-lg">Layanan Digital</h4>
-      <p class="text-gray-600">E-Library, Jurnal, dan Repository yang bisa kamu akses kapan saja.</p>
-    </div>
-    <div>
-      <img src="/buku.jpg" alt="Pelayanan Ramah" class="mx-auto h-16 mb-4" />
-      <h4 class="font-bold mb-2 text-lg">Pelayanan Ramah</h4>
-      <p class="text-gray-600">Petugas siap membantumu dalam pencarian referensi dan layanan perpustakaan.</p>
-    </div>
-  </div>
-</div>
+    <!-- Fitur Unggulan -->
+    <div class="bg-white py-16 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-10">Fitur Unggulan Kami</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <!-- Kartu Fitur -->
+          <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 hover:scale-105">
+            <img src="/bukuds.jpg" alt="Koleksi Buku" class="w-16 h-16 mx-auto mb-4" />
+            <h3 class="text-xl font-semibold mb-2 text-gray-700">Koleksi Buku Lengkap</h3>
+            <p class="text-gray-600 text-sm">
+              Ribuan koleksi buku cetak dan digital tersedia untuk menunjang proses belajarmu.
+            </p>
+          </div>
 
+          <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 hover:scale-105">
+            <img src="/ilustrasi1.jpg" alt="E-Library" class="w-16 h-16 mx-auto mb-4" />
+            <h3 class="text-xl font-semibold mb-2 text-gray-700">E-Library Modern</h3>
+            <p class="text-gray-600 text-sm">
+              Akses literatur dari mana saja dan kapan saja melalui sistem perpustakaan digital kami.
+            </p>
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition duration-300 hover:scale-105">
+            <img src="/bukudepan.jpg" alt="Konsultasi" class="w-16 h-16 mx-auto mb-4" />
+            <h3 class="text-xl font-semibold mb-2 text-gray-700">Konsultasi Akademik</h3>
+            <p class="text-gray-600 text-sm">
+              Layanan konsultasi langsung dengan pustakawan profesional untuk membantumu mencari referensi terbaik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -51,7 +68,9 @@
           <img src="/logo.png" alt="Logo UNNUR" class="footer-logo" />
           <p>Jl. Pajajaran No. 219 Bandung<br />Jawa Barat<br />Indonesia</p>
           <p><strong>(022)</strong> 6034484</p>
-          <p><a href="mailto:perpusunnurbdg@unnur.ac.id">perpusunnurbdg@unnur.ac.id</a></p>
+          <p>
+            <a href="mailto:perpusunnurbdg@unnur.ac.id">perpusunnurbdg@unnur.ac.id</a>
+          </p>
           <hr class="footer-line" />
           <h4>Jam Buka</h4>
           <p><strong>Senin – Jum’at :</strong><br />BUKA : 08.00<br />Istirahat : 12.00 – 13.00<br />TUTUP : 16.00</p>
@@ -115,7 +134,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* Footer */
 .footer {
   background-color: #26304b;
@@ -208,6 +227,7 @@ export default {
   .footer-logo {
     width: 100px;
   }
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 30px;
