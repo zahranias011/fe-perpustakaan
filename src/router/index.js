@@ -10,7 +10,7 @@ const routes = [
   { path: '/register', name: 'Register', component: register },
   { path: '/', name: 'Beranda', component: beranda},
   { path: '/tentangkami', name: 'TentangKami', component: tentangkami},
-  { path: '/kategori', name: 'Kategori', component: Kategori},
+  { path: '/kategori', name: 'kategori', component: Kategori},
 ];
 
 const router = createRouter({
