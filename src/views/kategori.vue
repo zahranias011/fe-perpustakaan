@@ -10,7 +10,7 @@
     <!-- Modal -->
     <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
       <div class="modal-box">
-        <h2 class="judul-modal">Pilih subjek yang menarik bagi Anda</h2>
+        <h2 class="judul-modal">Pilih kategori yang menarik bagi kamu yaa</h2>
         <div class="kategori-grid">
           <div class="kategori-card" v-for="(item, index) in items" :key="index">
             <img :src="item.icon" class="icon" />
