@@ -20,26 +20,53 @@
     </div>
     
     <!-- isi -->>
-    <div class="max-w-6xl mx-auto px-4 py-12">
-  <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">Fitur Unggulan</h3>
-  <div class="grid md:grid-cols-3 gap-8 text-center">
-    <div>
-      <img src="/buku1.png" alt="Koleksi Buku" class="mx-auto h-16 mb-4" />
-      <h4 class="font-bold mb-2 text-lg">Koleksi Buku Lengkap</h4>
-      <p class="text-gray-600">Akses koleksi buku fisik dan digital dari berbagai bidang ilmu.</p>
-    </div>
-    <div>
-      <img src="/logo.png" alt="Layanan Digital" class="mx-auto h-16 mb-4" />
-      <h4 class="font-bold mb-2 text-lg">Layanan Digital</h4>
-      <p class="text-gray-600">E-Library, Jurnal, dan Repository yang bisa kamu akses kapan saja.</p>
-    </div>
-    <div>
-      <img src="/logo.png" alt="Pelayanan Ramah" class="mx-auto h-16 mb-4" />
-      <h4 class="font-bold mb-2 text-lg">Pelayanan Ramah</h4>
-      <p class="text-gray-600">Petugas siap membantumu dalam pencarian referensi dan layanan perpustakaan.</p>
+    <section class="py-12 bg-white text-gray-800">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Selamat Datang</h2>
+    <p class="text-lg text-gray-600 mb-12">
+      Temukan koleksi buku terbaik, sumber literatur digital, dan berbagai layanan perpustakaan kampus kami. Akses mudah, cepat, dan lengkap untuk menunjang kebutuhan akademikmu.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+      <!-- Fitur 1 -->
+      <div class="flex items-start space-x-4 text-left">
+        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <div>
+          <h3 class="text-xl font-semibold">Fitur Unggulan</h3>
+          <p class="text-gray-600">Perpustakaan digital modern dengan akses cepat dan lengkap ke semua layanan kampus.</p>
+        </div>
+      </div>
+
+      <!-- Fitur 2 -->
+      <div class="flex items-start space-x-4 text-left">
+        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <div>
+          <h3 class="text-xl font-semibold">Koleksi Buku Lengkap</h3>
+          <p class="text-gray-600">Akses ribuan koleksi buku fisik dan digital dari berbagai bidang ilmu.</p>
+        </div>
+      </div>
+
+      <!-- Fitur 3 -->
+      <div class="flex items-start space-x-4 text-left">
+        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <div>
+          <h3 class="text-xl font-semibold">Layanan Digital</h3>
+          <p class="text-gray-600">E-Library, Jurnal, dan Repository yang bisa kamu akses kapan saja.</p>
+        </div>
+      </div>
+
+      <!-- Fitur 4 -->
+      <div class="flex items-start space-x-4 text-left">
+        <img src="/logo-unnur.png" alt="Logo UNNUR" class="w-16 h-16 object-contain" />
+        <div>
+          <h3 class="text-xl font-semibold">Pelayanan Ramah</h3>
+          <p class="text-gray-600">Petugas siap membantumu dalam pencarian referensi dan layanan perpustakaan.</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
 
 <!-- pengumuman -->
 
@@ -55,7 +82,7 @@
 </div>
 
 <!-- user -->
- 
+
 <div class="bg-gray-100 py-12 px-4">
   <div class="max-w-6xl mx-auto text-center">
     <h3 class="text-xl font-semibold text-gray-800 mb-6">Apa Kata Mereka?</h3>
