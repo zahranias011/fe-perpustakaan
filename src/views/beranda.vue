@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100" :class="{show: visble}">
+  <div class="min-h-screen bg-gray-100">
     <!-- Banner -->
     <div class="relative w-full h-[400px]">
       <img src="/bannerweb.png" class="object-cover w-full h-full" />
@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <!-- Konten -->
+    <!-- Sambutan -->
     <div class="max-w-6xl mx-auto py-12 px-4 text-center">
       <h2 class="text-2xl font-bold text-gray-800 mb-6">Selamat Datang</h2>
       <p class="text-gray-600 max-w-2xl mx-auto">
@@ -18,30 +18,7 @@
       </p>
     </div>
 
-     <!-- Kategori Ikon -->
-     <div class="kategori-container grid grid-cols-2 sm:grid-cols-3 gap-6">
-      <div class="kategori-card" v-for="(item, index) in items.slice(0, 4)" :key="index">
-        <img :src="item.icon" class="icon" alt="icon" />
-        <p class="label">{{ item.label }}</p>
-      </div>
-      <button class="lainnya-btn" @click="showModal = true">Lihat lainnya..</button>
-    </div>
-
-    <!-- Modal Kategori -->
-    <div v-if="showModal" class="modal-overlay" @click.self="showModal = false">
-      <div class="modal-box">
-        <h2 class="judul-modal">Pilih subjek yang menarik bagi Anda</h2>
-        <div class="kategori-grid">
-          <div class="kategori-card" v-for="(item, index) in items" :key="index">
-            <img :src="item.icon" class="icon" />
-            <p class="label">{{ item.label }}</p>
-          </div>
-        </div>
-        <button class="close-btn" @click="showModal = false">Tutup</button>
-      </div>
-    </div>
-
-    <!--Footer -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer-container">
         <!-- Info Kampus -->
@@ -110,71 +87,10 @@
 <script>
 export default {
   name: "HalamanBeranda",
-  data() {
-    return {
-      showModal: false,
-      items: [
-        { icon: "/icons/fiksi.png", label: "Fiksi" },
-        { icon: "/icons/nonfiksi.png", label: "Non-Fiksi" },
-        { icon: "/icons/sastra.png", label: "Kesusastraan" },
-        { icon: "/icons/sosial.png", label: "Ilmu-ilmu Sosial" },
-        { icon: "/icons/terapan.png", label: "Ilmu-ilmu Terapan" },
-        { icon: "/icons/kesenian.png", label: "Kesenian, Hiburan, dan Olahraga" },
-        { icon: "/icons/murni.png", label: "Ilmu-ilmu Murni" },
-        { icon: "/icons/karya.png", label: "Karya Umum" },
-        { icon: "/icons/agama.png", label: "Agama" },
-        { icon: "/icons/filsafat.png", label: "Filsafat" },
-        { icon: "/icons/bahasa.png", label: "Bahasa" },
-        { icon: "/icons/geografi.png", label: "Geografi dan Sejarah" },
-      ],
-    };
-  },
 };
 </script>
 
-<style scoped>
-/* Kategori */
-.kategori-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 30px 20px;
-  background: #f3f4f6;
-}
-
-.kategori-card {
-  width: 150px;
-  height: 150px;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-}
-
-.kategori-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-}
-
-.icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.label {
-  font-size: 14px;
-  color: #374151;
-  text-align: center;
-}
-
+<style>
 /* Footer */
 .footer {
   background-color: #26304b;
@@ -271,95 +187,6 @@ export default {
   .footer-container {
     grid-template-columns: 1fr;
     gap: 30px;
-  }
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-box {
-  background: #fff;
-  padding: 30px;
-  width: 90%;
-  max-width: 700px;
-  border-radius: 12px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease;
-}
-
-.judul-modal {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.kategori-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
-}
-
-.kategori-card {
-  text-align: center;
-  padding: 16px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.kategori-card:hover {
-  background-color: #f5f5f5;
-  transform: translateY(-4px);
-}
-
-.icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.label {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.close-btn {
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-.close-btn:hover {
-  background-color: #0056b3;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
   }
 }
 </style>
