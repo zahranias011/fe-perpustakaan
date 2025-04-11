@@ -1,89 +1,47 @@
-<script>
-import emitter from '@/event-bus';
-
-export default{
-  name: 'navbar',
-  data(){
-    return {
-      isLoggedIn: false,
-      userName: ''
-    };
-  },
-  mounted() {
-    // Cek apakah user sudah login
-    const user = localStorage.getItem('userName');
-    if (user) {
-      this.isLoggedIn = true;
-      this.userName = user;
-    }
-
-    // Dengarkan event login dari halaman login
-    emitter.on('user-logged-in', (name) => {
-      this.isLoggedIn = true;
-      this.userName = name;
-    });
-
-    // Dengarkan event logout (kalau kamu pakai emit juga saat logout)
-    emitter.on('user-logged-out', () => {
-      this.isLoggedIn = false;
-      this.userName = '';
-    });
-  },
-  methods: {
-    logout() {
-      localStorage.removeItem('userName');
-      this.isLoggedIn = false;
-      this.userName = '';
-      emitter.emit('user-logged-out'); // ← emit event logout
-      this.$router.push('/signin');
-    }
-  }
-};
-</script>
-
 <template>
-  <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold text-primary" href="#">
-        <img src="/logo.png" alt="Logo" height="50" class="d-inline-block align-text-top me-2"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <router-link class="navbar-brand fw-bold text-primary" to="/">
+        <img src="/logo.png" alt="Logo" height="50" class="d-inline-block align-text-top me-2" />
+      </router-link>
+
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Desktop Menu -->
+      <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/" class="nav-link custom-link" aria-current="page">Beranda</router-link>
+            <router-link to="/" class="nav-link custom-link" :class="{ active: $route.path === '/' }" aria-current="page">Beranda</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/tentangkami" class="nav-link custom-link" aria-current="page">Tentang Kami</router-link>
+            <router-link to="/tentangkami" class="nav-link custom-link" :class="{ active: $route.path === '/tentangkami' }">Tentang Kami</router-link>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle custom-link" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false">
+            <a class="nav-link dropdown-toggle custom-link" href="#" role="button" data-bs-toggle="dropdown">
               Rak Buku
             </a>
             <ul class="dropdown-menu">
-              <li><router-link to="/kategori" class="nav-link custom-link" aria-current="page">Kategori</router-link></li>
-              <li><router-link to="/favoritpembaca" class="nav-link custom-link" aria-current="page">Favorit Pembaca</router-link></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><router-link to="/bukubaru" class="nav-link custom-link" aria-current="page">Buku Baru</router-link></li>
-              <li><a href="https://unnurbandung.perpustakaan.co.id/" class="nav-link custom-link" rel="noopener">E-Book</a></li>
+              <li><router-link to="/kategori" class="dropdown-item" :class="{ active: $route.path === '/kategori' }">Kategori</router-link></li>
+              <li><router-link to="/favoritpembaca" class="dropdown-item" :class="{ active: $route.path === '/favoritpembaca' }">Favorit Pembaca</router-link></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><router-link to="/bukubaru" class="dropdown-item" :class="{ active: $route.path === '/bukubaru' }">Buku Baru</router-link></li>
+              <li><a href="https://unnurbandung.perpustakaan.co.id/" class="dropdown-item" target="_blank">E-Book</a></li>
             </ul>
           </li>
         </ul>
 
         <form class="d-flex mx-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Cari buku..." aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Cari buku..." aria-label="Search" />
           <button class="btn btn-outline-primary" type="submit">Cari</button>
         </form>
 
-        <!-- Akun -->
         <div class="ms-3 dropdown">
           <img src="/user.png" width="32" height="32" class="rounded-circle dropdown-toggle" role="button"
-               data-bs-toggle="dropdown" alt="Account Icon" style="cursor:pointer" />
+            data-bs-toggle="dropdown" alt="Account Icon" style="cursor:pointer" />
 
           <ul class="dropdown-menu dropdown-menu-end">
             <template v-if="userName">
@@ -98,9 +56,104 @@ export default{
           </ul>
         </div>
       </div>
+
+      <!-- Offcanvas Menu Mobile -->
+      <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel">
+        <!-- Akun (Mobile) -->
+        <div class="dropdown my-3">
+            <a class="d-flex align-items-center dropdown-toggle text-decoration-none" href="#" role="button"
+              data-bs-toggle="dropdown">
+              <img src="/user.png" width="28" height="28" class="rounded-circle me-2" alt="Account Icon" />
+              <span v-if="userName">Halo, {{ userName }}</span>
+              <span v-else>Login</span>
+            </a>
+            <ul class="dropdown-menu">
+              <template v-if="userName">
+                <li><router-link class="dropdown-item" to="/bookmark" @click="closeOffcanvas">Bookmark</router-link></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item" @click="logout">Logout</button></li>
+              </template>
+              <template v-else>
+                <li><router-link class="dropdown-item" to="/signin" @click="closeOffcanvas">Login</router-link></li>
+              </template>
+            </ul>
+        </div>
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <router-link to="/" class="nav-link" @click="closeOffcanvas">Beranda</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/tentangkami" class="nav-link" @click="closeOffcanvas">Tentang Kami</router-link>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-bs-toggle="dropdown">
+                Rak Buku
+              </a>
+              <ul class="dropdown-menu">
+                <li><router-link to="/kategori" class="dropdown-item" @click="closeOffcanvas">Kategori</router-link></li>
+                <li><router-link to="/favoritpembaca" class="dropdown-item" @click="closeOffcanvas">Favorit Pembaca</router-link></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><router-link to="/bukubaru" class="dropdown-item" @click="closeOffcanvas">Buku Baru</router-link></li>
+                <li><a href="https://unnurbandung.perpustakaan.co.id/" class="dropdown-item" target="_blank">E-Book</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
+
+<script>
+import emitter from '@/event-bus';
+
+export default {
+  name: 'Navbar',
+  data() {
+    return {
+      isLoggedIn: false,
+      userName: ''
+    };
+  },
+  mounted() {
+    const user = localStorage.getItem('userName');
+    if (user) {
+      this.isLoggedIn = true;
+      this.userName = user;
+    }
+
+    emitter.on('user-logged-in', (name) => {
+      this.isLoggedIn = true;
+      this.userName = name;
+    });
+
+    emitter.on('user-logged-out', () => {
+      this.isLoggedIn = false;
+      this.userName = '';
+    });
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem('userName');
+      this.isLoggedIn = false;
+      this.userName = '';
+      emitter.emit('user-logged-out');
+      this.$router.push('/signin');
+      this.closeOffcanvas();
+    },
+    closeOffcanvas() {
+      const offcanvasEl = document.getElementById('offcanvasNavbar');
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+      if (bsOffcanvas) {
+        bsOffcanvas.hide();
+      }
+    }
+  }
+};
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
@@ -110,10 +163,7 @@ export default{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   font-family: 'Poppins', sans-serif;
   padding: 12px 24px;
-}
-
-.navbar-brand {
-  font-size: 1.3rem;
+  z-index: 1030;
 }
 
 .custom-link {
@@ -141,5 +191,32 @@ export default{
 
 .custom-link:hover {
   color: #007bff !important;
+}
+
+/* Style tambahan untuk akun */
+.dropdown-menu {
+  min-width: 180px;
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+}
+
+.ms-3 {
+  margin-left: 15px !important;
+}
+
+/* Tambahan biar ada underline dan warna beda */
+.nav-link.active {
+  color: #007bff !important;
+  font-weight: 600;
+}
+
+.custom-link.active::after {
+  width: 100%;
+}
+.custom-link.active {
+  color: #007bff !important;
+  font-weight: 600;
 }
 </style>

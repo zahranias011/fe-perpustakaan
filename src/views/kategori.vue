@@ -1,163 +1,151 @@
 <template>
+  <div class="kategori-wrapper">
     <div class="kategori-container">
-      <div class="kategori-card" v-for="(item, index) in displayedItems" :key="index">
+      <h2 class="judul-kategori">
+        Pilih kategori buku yang kamu mau baca yaak (✿◡‿◡) 
+      </h2>
+
+      <div
+        v-for="(item, index) in displayedItems"
+        :key="index"
+        class="kategori-card"
+      >
         <img :src="item.icon" class="icon" alt="icon" />
         <p class="label">{{ item.label }}</p>
       </div>
-      <button class="lainnya-btn" @click="showModal = true" v-if="items.length > 6">Lainnya</button>
+
+      <div
+        class="kategori-card lainnya"
+        v-if="items.length > 6"
+        @click="showModal = true"
+      >
+        <p class="label">Lainnya</p>
+      </div>
     </div>
-  
+
     <!-- Modal -->
     <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
       <div class="modal-box">
-        <h2 class="judul-modal">Pilih kategori yang menarik bagi kamu yaa</h2>
+        <button class="close-icon" @click="closeModal">×</button>
         <div class="kategori-grid">
-          <div class="kategori-card" v-for="(item, index) in items" :key="index">
-            <img :src="item.icon" class="icon" />
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="kategori-card"
+          >
+            <img :src="item.icon" class="icon" alt="icon" />
             <p class="label">{{ item.label }}</p>
           </div>
         </div>
-        <button class="close-btn" @click="closeModal">Tutup</button>
       </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: "Kategori",
-    data() {
-      return {
-        showModal: false,
-        items: [
-          { icon: "/icons/fiksi.png", label: "Fiksi" },
-          { icon: "/icons/nonfiksi.png", label: "Non-Fiksi" },
-          { icon: "/icons/sastra.png", label: "Kesusastraan" },
-          { icon: "/icons/sosial.png", label: "Ilmu-ilmu Sosial" },
-          { icon: "/icons/terapan.png", label: "Ilmu-ilmu Terapan" },
-          { icon: "/icons/kesenian.png", label: "Kesenian, Hiburan, dan Olahraga" },
-          { icon: "/icons/murni.png", label: "Ilmu-ilmu Murni" },
-          { icon: "/icons/karya.png", label: "Karya Umum" },
-          { icon: "/icons/agama.png", label: "Agama" },
-          { icon: "/icons/filsafat.png", label: "Filsafat" },
-          { icon: "/icons/bahasa.png", label: "Bahasa" },
-          { icon: "/icons/geografi.png", label: "Geografi dan Sejarah" },
-        ],
-      };
-    },
-    computed: {
-      displayedItems() {
-        return this.items.slice(0, 6);
-      },
-    },
-    mounted() {
-      document.addEventListener("keydown", this.handleEsc);
-    },
-    beforeDestroy() {
-      document.removeEventListener("keydown", this.handleEsc);
-    },
-    methods: {
-      closeModal() {
-        this.showModal = false;
-      },
-      handleEsc(e) {
-        if (e.key === "Escape") {
-          this.closeModal();
-        }
-      },
-    },
-  };
-</script>  
-  
-<style scoped>
-  .kategori-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 20px;
-    background: #f9fbfd;
-  }
-  
-  .kategori-card {
-    width: 150px;
-    height: 150px;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
-  }
-  
-  .kategori-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-  }
-  
-  .icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-  }
-  
-  .label {
-    font-size: 14px;
-    color: #374151;
-    text-align: center;
-  }
+  </div>
+</template>
 
-  .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+<script>
+export default {
+  name: "Kategori",
+  data() {
+    return {
+      showModal: false,
+      items: [
+        { icon: "/icons/fiksi.png", label: "Fiksi" },
+        { icon: "/icons/nonfiksi.png", label: "Non-Fiksi" },
+        { icon: "/icons/sastra.png", label: "Kesusastraan" },
+        { icon: "/icons/sosial.png", label: "Ilmu-ilmu Sosial" },
+        { icon: "/icons/terapan.png", label: "Ilmu-ilmu Terapan" },
+        { icon: "/icons/kesenian.png", label: "Kesenian, Hiburan, dan Olahraga" },
+        { icon: "/icons/murni.png", label: "Ilmu-ilmu Murni" },
+        { icon: "/icons/karya.png", label: "Karya Umum" },
+        { icon: "/icons/agama.png", label: "Agama" },
+        { icon: "/icons/filsafat.png", label: "Filsafat" },
+        { icon: "/icons/bahasa.png", label: "Bahasa" },
+        { icon: "/icons/geografi.png", label: "Geografi dan Sejarah" },
+      ],
+    };
+  },
+  computed: {
+    displayedItems() {
+      return this.items.slice(0, 6);
+    },
+  },
+  mounted() {
+    document.addEventListener("keydown", this.handleEsc);
+  },
+  beforeDestroy() {
+    document.removeEventListener("keydown", this.handleEsc);
+  },
+  methods: {
+    closeModal() {
+      this.showModal = false;
+    },
+    handleEsc(e) {
+      if (e.key === "Escape") {
+        this.closeModal();
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* Wrapper buat background full */
+.kategori-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/beranda5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 999;
+  align-items: flex-start;
+  padding-top: 200px;
 }
 
-.modal-box {
-  background: #fff;
-  padding: 30px;
-  width: 90%;
-  max-width: 700px;
-  border-radius: 12px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease;
-}
 
-.judul-modal {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.kategori-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Container tengah */
+.kategori-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  justify-items: center;
+  padding: 20px;
 }
 
-.kategori-card {
+/* Judul */
+.judul-kategori {
+  width: 100%;
   text-align: center;
-  padding: 16px;
-  border: 1px solid #eee;
-  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 3px rgba(41, 48, 41, 0.2);
+}
+
+/* Kartu */
+.kategori-card {
+  width: 150px;
+  height: 150px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: all 0.3s ease;
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
 
 .kategori-card:hover {
-  background-color: #f5f5f5;
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .icon {
@@ -169,65 +157,86 @@
 .label {
   font-size: 14px;
   font-weight: 500;
+  color: #374151;
+  text-align: center;
 }
 
-.close-btn {
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #007bff;
+/* Kartu "Lainnya" */
+.kategori-card.lainnya {
+  background: linear-gradient(135deg, #3ec7c5, #669fd9);
   color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
 }
 
-.close-btn:hover {
-  background-color: #0056b3;
+.kategori-card.lainnya:hover {
+  background: linear-gradient(135deg, #309fa3, #4f86c2);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.lainnya-btn {
-  background-color: #10b981;
+.kategori-card.lainnya .label {
   color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
-.lainnya-btn:hover {
-  background-color: #059669;
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  z-index: 999;
 }
 
 .modal-box {
-  transition: all 0.3s ease;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   animation: scaleFade 0.3s ease-out;
+  position: relative;
 }
 
+.kategori-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 20px;
+  justify-items: center;
+}
+
+/* Tombol Tutup */
+.close-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #6b7280;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.close-icon:hover {
+  color: #e57373;
+}
+
+/* Animasi */
 @keyframes scaleFade {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
-</style>  
+</style>
