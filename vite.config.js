@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+const API_BACKEND_URL = process.env.VITE_APP_API_URL
+console.log(API_BACKEND_URL);
+
 
 export default defineConfig({
   plugins: [vue()],
@@ -13,7 +16,7 @@ export default defineConfig({
     port: 5173,  // Port untuk frontend
     proxy: {
       '/auth': {
-        target: 'http://localhost:8080', // URL backend Spring Boot
+        target: API_BACKEND_URL, // URL backend Spring Boot
         changeOrigin: true,
         secure: false, // Jika menggunakan http
       }
