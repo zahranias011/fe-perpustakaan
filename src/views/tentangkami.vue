@@ -39,7 +39,7 @@ export default {
           ],
         },
       ],
-      fullTitle: "Tentang Kami ლ(╹◡╹ლ)",
+      fullTitle: "Tentang Kami",
     };
   },
   mounted() {

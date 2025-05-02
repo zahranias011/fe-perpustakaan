@@ -34,8 +34,8 @@
           </li>
         </ul>
 
-        <form class="d-flex mx-auto" role="search">
-          <input class="form-control me-2" type="search" placeholder="Cari buku..." aria-label="Search" />
+        <form class="d-flex mx-auto" role="search" @submit.prevent="searchBuku">
+          <input v-model="keyword" class="form-control me-2" type="search" placeholder="Cari buku..." aria-label="Search" />
           <button class="btn btn-outline-primary" type="submit">Cari</button>
         </form>
 
@@ -114,6 +114,7 @@ export default {
   name: 'Navbar',
   data() {
     return {
+      keyword: '',       // hanya pakai 'keyword' untuk pencarian
       isLoggedIn: false,
       userName: ''
     };
@@ -136,6 +137,14 @@ export default {
     });
   },
   methods: {
+    searchBuku() {
+      // Arahkan ke halaman hasil pencarian, kirim keyword via query
+      if (this.keyword.trim() !== '') {
+        this.$router.push({ name: 'hasilpencarian', query: { keyword: this.keyword } });
+        this.keyword = '';
+      }
+    },
+
     logout() {
       localStorage.removeItem('userName');
       this.isLoggedIn = false;
@@ -144,6 +153,7 @@ export default {
       this.$router.push('/signin');
       this.closeOffcanvas();
     },
+
     closeOffcanvas() {
       const offcanvasEl = document.getElementById('offcanvasNavbar');
       const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
@@ -153,7 +163,7 @@ export default {
     }
   }
 };
-</script>
+</script>]
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');

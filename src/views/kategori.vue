@@ -9,9 +9,12 @@
         v-for="(item, index) in displayedItems"
         :key="index"
         class="kategori-card"
-      >
-        <img :src="item.icon" class="icon" alt="icon" />
-        <p class="label">{{ item.label }}</p>
+        >
+        <!-- Link untuk kategori -->
+        <router-link :to="'/kategori/' + item.label.toLowerCase()">
+          <img :src="item.icon" class="icon" alt="icon" />
+          <p class="label">{{ item.label }}</p>
+        </router-link>
       </div>
 
       <div
@@ -33,8 +36,11 @@
             :key="index"
             class="kategori-card"
           >
-            <img :src="item.icon" class="icon" alt="icon" />
-            <p class="label">{{ item.label }}</p>
+            <!-- Link untuk kategori -->
+            <router-link :to="'/kategori/' + item.label.toLowerCase()">
+              <img :src="item.icon" class="icon" alt="icon" />
+              <p class="label">{{ item.label }}</p>
+            </router-link>
           </div>
         </div>
       </div>
@@ -49,14 +55,14 @@ export default {
     return {
       showModal: false,
       items: [
-        { icon: "/icons/fiksi.png", label: "Fiksi" },
-        { icon: "/icons/nonfiksi.png", label: "Non-Fiksi" },
-        { icon: "/icons/sastra.png", label: "Kesusastraan" },
-        { icon: "/icons/sosial.png", label: "Ilmu-ilmu Sosial" },
-        { icon: "/icons/terapan.png", label: "Ilmu-ilmu Terapan" },
-        { icon: "/icons/kesenian.png", label: "Kesenian, Hiburan, dan Olahraga" },
-        { icon: "/icons/murni.png", label: "Ilmu-ilmu Murni" },
-        { icon: "/icons/karya.png", label: "Karya Umum" },
+        { icon: "/icons/fiksi.png", label: "Informatika" },
+        { icon: "/icons/nonfiksi.png", label: "Penerbangan" },
+        { icon: "/icons/sastra.png", label: "Teknik Industri" },
+        { icon: "/icons/sosial.png", label: "Elektro" },
+        { icon: "/icons/terapan.png", label: "Akutansi" },
+        { icon: "/icons/kesenian.png", label: "Manajemen" },
+        { icon: "/icons/murni.png", label: "Administrasi Negara" },
+        { icon: "/icons/karya.png", label: "Administrasi Bisnis" },
         { icon: "/icons/agama.png", label: "Agama" },
         { icon: "/icons/filsafat.png", label: "Filsafat" },
         { icon: "/icons/bahasa.png", label: "Bahasa" },
@@ -105,7 +111,6 @@ export default {
   padding-top: 200px;
 }
 
-
 /* Container tengah */
 .kategori-container {
   display: flex;
@@ -141,6 +146,7 @@ export default {
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  text-align: center;
 }
 
 .kategori-card:hover {
@@ -238,5 +244,21 @@ export default {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* Menghilangkan underline pada router-link dan tag a */
+router-link {
+  text-decoration: none !important; /* Menghapus underline pada router-link */
+}
+
+router-link a {
+  text-decoration: none !important; /* Menghapus underline pada tag <a> dalam router-link */
+  color: inherit !important;        /* Menggunakan warna teks yang sama */
+  cursor: pointer; /* Menjaga pointer cursor seperti biasa */
+}
+
+.kategori-card a {
+  text-decoration: none !important; /* Menghapus underline di dalam kartu kategori */
+  color: inherit !important;        /* Menggunakan warna teks yang sama */
 }
 </style>

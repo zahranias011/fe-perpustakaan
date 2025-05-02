@@ -1,47 +1,30 @@
 <template>
-    <button v-if="showButton" id="chatbot-button" @click="openChatbot">
+<div class="chatbot-popup" @click="toggleChat">
       💬
-    </button>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        showButton: true // Tombol terlihat saat pertama kali
-      };
-    },
-    methods: {
-      openChatbot() {
-        this.showButton = false; // Sembunyikan tombol saat chatbot dibuka
-        this.$router.push('/chatbot');
-      },
-      showChatbotButton() {
-        this.showButton = true; // Munculkan kembali tombol saat chatbot ditutup
-      }
-    },
-    mounted() {
-      window.addEventListener("chatbot-closed", this.showChatbotButton);
-    },
-    beforeUnmount() {
-      window.removeEventListener("chatbot-closed", this.showChatbotButton);
-    }
-  };
+    </div>
+</template>
+   
+ <script setup>
+  defineProps(['toggleChat'])
   </script>
   
   <style scoped>
-  #chatbot-button {
+  .chatbot-popup {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 15px;
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
     border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    z-index: 999;
   }
   </style>
-  

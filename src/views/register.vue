@@ -20,7 +20,7 @@ export default {
         alert(response.data);
         this.$router.push('/signin'); // Redirect ke halaman login
       } catch (error) {
-        alert('Registrasi gagal: ' + error.response.data.message || error.response.data || 'Terjadi kesalahan');
+        alert('Registrasi gagal: ' + (error.response?.data || 'Terjadi kesalahan'));
       }
     }
   }

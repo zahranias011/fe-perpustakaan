@@ -1,68 +1,68 @@
 <template>
-    <!-- Footer -->
+  <!-- Footer -->
 <footer class="footer">
-  <div class="footer-container">
-    <!-- Info Kampus -->
-    <div class="footer-section logo-area">
-      <img src="/logo.png" alt="Logo UNNUR" class="footer-logo" />
-      <p>Jl. Pajajaran No. 219 Bandung<br />Jawa Barat<br />Indonesia</p>
-      <p><strong>(022)</strong> 6034484</p>
-      <p>
-        <a href="mailto:perpusunnurbdg@unnur.ac.id">perpusunnurbdg@unnur.ac.id</a>
-      </p>
-      <hr class="footer-line" />
-      <h4>Jam Buka</h4>
-      <p><strong>Senin – Jum’at :</strong><br />BUKA : 08.00<br />Istirahat : 12.00 – 13.00<br />TUTUP : 16.00</p>
-    </div>
-
-    <!-- Fakultas -->
-    <div class="footer-section">
-      <h4>Fakultas</h4>
-      <hr class="footer-line" />
-      <ul>
-        <li>FISIP</li>
-        <li>FT</li>
-        <li>FE</li>
-        <li>FIKI</li>
-        <li>Sekolah Pascasarjana</li>
-      </ul>
-    </div>
-
-    <!-- Unit -->
-    <div class="footer-section">
-      <h4>Unit</h4>
-      <hr class="footer-line" />
-      <ul>
-        <li>Biro AAK</li>
-        <li>Biro AUK</li>
-        <li>APSI</li>
-        <li>LPPM</li>
-        <li>LP3M</li>
-        <li>SPI</li>
-        <li>UPT PERPUSTAKAAN</li>
-        <li>UPT TI & PDDIKTI</li>
-        <li>UPT BAHASA</li>
-        <li>UPT INKUBATOR BISNIS</li>
-        <li>UPT PUSYAN</li>
-      </ul>
-    </div>
-
-    <!-- Layanan -->
-    <div class="footer-section">
-      <h4>Layanan</h4>
-      <hr class="footer-line" />
-      <ul>
-        <li>SIAKAD</li>
-        <li>Jurnal UNNUR</li>
-        <li>Email UNNUR</li>
-        <li>E-Learning</li>
-        <li>E-Library</li>
-        <li>Cloud Storage</li>
-        <li>Repository UNNUR</li>
-        <li>Blog UNNUR</li>
-      </ul>
-    </div>
+<div class="footer-container">
+  <!-- Info Kampus -->
+  <div class="footer-section logo-area">
+    <img src="/logo.png" alt="Logo UNNUR" class="footer-logo" />
+    <p>Jl. Pajajaran No. 219 Bandung<br />Jawa Barat<br />Indonesia</p>
+    <p><strong>(022)</strong> 6034484</p>
+    <p>
+      <a href="mailto:perpusunnurbdg@unnur.ac.id">perpusunnurbdg@unnur.ac.id</a>
+    </p>
+    <hr class="footer-line" />
+    <h4>Jam Buka</h4>
+    <p><strong>Senin – Jum’at :</strong><br />BUKA : 08.00<br />Istirahat : 12.00 – 13.00<br />TUTUP : 16.00</p>
   </div>
+
+  <!-- Fakultas -->
+  <div class="footer-section">
+    <h4>Fakultas</h4>
+    <hr class="footer-line" />
+    <ul>
+      <li>FISIP</li>
+      <li>FT</li>
+      <li>FE</li>
+      <li>FIKI</li>
+      <li>Sekolah Pascasarjana</li>
+    </ul>
+  </div>
+
+  <!-- Unit -->
+  <div class="footer-section">
+    <h4>Unit</h4>
+    <hr class="footer-line" />
+    <ul>
+      <li>Biro AAK</li>
+      <li>Biro AUK</li>
+      <li>APSI</li>
+      <li>LPPM</li>
+      <li>LP3M</li>
+      <li>SPI</li>
+      <li>UPT PERPUSTAKAAN</li>
+      <li>UPT TI & PDDIKTI</li>
+      <li>UPT BAHASA</li>
+      <li>UPT INKUBATOR BISNIS</li>
+      <li>UPT PUSYAN</li>
+    </ul>
+  </div>
+
+  <!-- Layanan -->
+  <div class="footer-section">
+    <h4>Layanan</h4>
+    <hr class="footer-line" />
+    <ul>
+      <li>SIAKAD</li>
+      <li>Jurnal UNNUR</li>
+      <li>Email UNNUR</li>
+      <li>E-Learning</li>
+      <li>E-Library</li>
+      <li>Cloud Storage</li>
+      <li>Repository UNNUR</li>
+      <li>Blog UNNUR</li>
+    </ul>
+  </div>
+</div>
 </footer>
 </template>
 
